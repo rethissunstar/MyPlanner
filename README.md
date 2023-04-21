@@ -8,8 +8,8 @@ Time is shown above the appointments and is referenced to change the colour valu
 
 ## Visuals
 Please see the files in the assets folder.
-<img src="./assets/screen of it working locally.png"><img>
-
+<img src="Assets\screen of it working locally.png"><img>
+<img src="Assets\workinglive.png"><img>
 ## Usage
 Opening the web page will open the app.  Clicking on the text area will allow the adding of the text for the appointment. Clicking save will store the value for future refresh.
 Note it will remain day to day as there is no clear function for a new day.
@@ -17,6 +17,8 @@ Note it will remain day to day as there is no clear function for a new day.
 ## Support and references
 My tutor helped me locate a class that wasn't loaded correctly but overall I came up with the methodology on my own.  Was a lot of code.  There are console.logs all over to help me check that values were working and that things were loading.  This was a very challenging challenge.
 This app uses Day.js to function out the time.
+Website: https://rethissunstar.github.io/MyPlanner/
+GitHub: https://github.com/rethissunstar/MyPlanner
 
 ## License
 This was created under the MIT license.
