@@ -8,6 +8,143 @@ $(function () {
   // function? How can DOM traversal be used to get the "hour-x" id of the
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
+
+  //CHRIS NOTES: lets try to pull the data from the HTML and create a 
+  //multidimensional object. 
+  //for the test we know it will be 3.  we will adjust to 8 should it work.
+  //the object to receive the values.
+  var dayList = [
+    {
+      theTime: "9am",
+      userText:"no Appointments",
+      saveValue: false
+    },{
+      theTime: "10am",
+      userText:"No Appointments",
+      saveValue: false
+    },{
+      theTime: "11am",
+      userText:"No Appointments",
+      saveValue: false
+    }
+
+  ]
+  //get the local storage test
+  
+  console.log(dayList[0].userText);
+var inText = "";
+var inClass = "";
+var findIndex = 0;
+  function setStorage(inText, inClass, event){
+    
+    console.log("this is testStorage: " + testStorage);
+    console.log('this is the inText: ' + inText);
+    console.log("this is the inClass" + inClass);
+    if (inClass = "col-8 col-md-10 description text hour-9"){
+      dayList[0].userText = inText;
+      localStorage.setItem("hour-9", inText);
+    }
+    //dayList[i].userText = testStorage;
+    
+    
+    //localStorage.setItem(workHour, dayList[i].userText)
+  } 
+  var mainEl = document.querySelector(".container-fluid");
+
+  //this is where we should add the clock element that will be compared when the loop
+  //is generating the calendar - if that is successful.
+  var realtime = dayjs().hour();
+  var headEl = document.getElementsByTagName('header');
+  var clockEl = document.createElement("p");
+  var timerInterval;
+  var timercount = dayjs().hour() + ':' + dayjs().minute() + ':' + dayjs().second();
+  function clockTime (){
+ 
+}
+var timerInterval = setInterval(function (){
+  timercount = dayjs().hour() + ':' + dayjs().minute() + ':' + dayjs().second();
+  clockEl.innerHTML= 'time: ' + timercount;
+
+}, 1000)
+ 
+  mainEl.appendChild(clockEl);
+ clockTime(); 
+  console.log(realtime);
+
+
+  //we have to get the DOm before we can begin adding junk
+  
+
+  //this for loop is going to attempt to generate the same values of the HTML
+  //dynamically and will get and set local storage. hour container-fluid text-center 5-px
+  for (i=0; i<3; i++){
+    workHour = "hour-"+(i+9);
+    var hourcheck = i + 9;
+    console.log(workHour);
+    var entryGen = document.createElement("div");
+    entryGen.setAttribute("id", workHour);
+    //entryGen.setAttribute("class","row time-block");
+    if (realtime == (hourcheck)){
+      entryGen.setAttribute("class", "row time-block present");
+    }
+    else if (realtime > hourcheck){
+      entryGen.setAttribute("class","row time-block past" )
+    }
+    else{
+      entryGen.setAttribute("class", "row time-block future")
+    }
+    
+    mainEl.appendChild(entryGen);
+        //set the sub div
+        var scriptRef1 = document.createElement("script", "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js");
+        var scriptRef2 = document.createElement("script", "https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js");
+
+        var entryGen2 = document.createElement('div');
+        entryGen2.setAttribute("class","col-2 col-md-1 text-center py-3 hour" + " " + workHour);
+        entryGen2.innerHTML = dayList[i].theTime;
+        entryGen.appendChild(entryGen2);
+        var textArea = document.createElement("textarea");
+        textArea.setAttribute("class", "col-8 col-md-10 description text"+ " " + workHour);
+        textArea.setAttribute("rows", '3');
+        textArea.setAttribute("id", "text"+workHour);
+        var testStorage = localStorage.getItem(workHour);
+        //getting the local storage
+        if (testStorage == undefined){
+          console.log("this worked");
+          dayList[i].userText = "No Appointments";
+        }
+        else{
+          dayList[i].userText = "No Appointments";
+        }
+        textArea.innerText = dayList[i].userText;
+        entryGen.appendChild(textArea);
+        var btn = document.createElement("button");
+        btn.setAttribute("type", "submit");
+        btn.setAttribute("class", "btn saveBtn col-2 col-md-1");
+        btn.setAttribute("id", "button"+workHour);
+        btn.setAttribute("aria-label", "save");
+        entryGen.appendChild(btn);
+        var clickRead = document.createElement("i");
+        clickRead.setAttribute("class", "fas fa-save");
+        clickRead.setAttribute("aria-hidden", "true");
+        clickRead.style = "::before";
+        console.log("this is the btn " + workHour + " " +testStorage + " " + dayList[i].userText);
+        btn.appendChild(clickRead);
+        //btn.addEventListener("click", localStorage.setItem(workHour, dayList[i].userText));
+        //btn saveBtn col-2 col-md-1 buttonhour-
+      
+        //btn.addEventListener("submit", setStorage(textArea.firstChild.nodeValue, textArea.className));
+        
+        
+
+        
+        
+  }
+ 
+
+  
+//the net says that I am event bubbling.  I am napping then tacking this in an hour.
+
   //
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
@@ -18,6 +155,27 @@ $(function () {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
+
+  var clickEvent = document.getElementById('buttonhour-9').addEventListener('click', function(event){
+       
+    event.preventDefault();
+    console.log('this is working')
+      
+    //   inText = textArea.firstChild.nodeValue;
+    //   console.log("this is the 4th attempt " + inText);
+    //   if ("buttonhour-"+j == "buttonhour-"+indexCheck){
+    //     dayList[j].userText = inText;
+    //     localStorage.setItem("hour-"+j, inText);
+      
+    // }        
+      
+    
+  
+  })
+
+
+
   //
   // TODO: Add code to display the current date in the header of the page.
 });
+
