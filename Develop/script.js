@@ -26,7 +26,32 @@ $(function () {
       theTime: "11am",
       userText:"No Appointments",
       saveValue: false
+    },{
+      theTime: "12pm",
+      userText:"No Appointments",
+      saveValue: false
+    },{
+      theTime: "1pm",
+      userText:"No Appointments",
+      saveValue: false
+    },{
+      theTime: "2pm",
+      userText:"No Appointments",
+      saveValue: false
+    },{
+      theTime: "3pm",
+      userText:"No Appointments",
+      saveValue: false
+    },{
+      theTime: "4pm",
+      userText:"No Appointments",
+      saveValue: false
+    },{
+      theTime: "5pm",
+      userText:"No Appointments",
+      saveValue: false
     }
+
 
   ]
   //get the local storage test
@@ -77,7 +102,7 @@ var timerInterval = setInterval(function (){
 
   //this for loop is going to attempt to generate the same values of the HTML
   //dynamically and will get and set local storage. hour container-fluid text-center 5-px
-  for (i=0; i<3; i++){
+  for (i=0; i<9; i++){
     workHour = "hour-"+(i+9);
     var hourcheck = i + 9;
     console.log(workHour);
@@ -114,7 +139,7 @@ var timerInterval = setInterval(function (){
           dayList[i].userText = "No Appointments";
         }
         else{
-          dayList[i].userText = "No Appointments";
+          dayList[i].userText = localStorage.getItem(workHour);
         }
         textArea.innerText = dayList[i].userText;
         entryGen.appendChild(textArea);
@@ -159,23 +184,129 @@ var timerInterval = setInterval(function (){
   var clickEvent = document.getElementById('buttonhour-9').addEventListener('click', function(event){
        
     event.preventDefault();
-    console.log('this is working')
-      
-    //   inText = textArea.firstChild.nodeValue;
-    //   console.log("this is the 4th attempt " + inText);
-    //   if ("buttonhour-"+j == "buttonhour-"+indexCheck){
-    //     dayList[j].userText = inText;
-    //     localStorage.setItem("hour-"+j, inText);
-      
-    // }        
-      
+    
+  
+    dayList[0].userText = document.getElementById("texthour-9").value;
+    localStorage.setItem('hour-9', dayList[0].userText);
+    console.log(dayList[0].userText);
+    console.log(textArea.innerText);
+
+  
     
   
   })
 
+  var clickEvent = document.getElementById('buttonhour-10').addEventListener('click', function(event){
+       
+    event.preventDefault();
+    
+  
+    dayList[1].userText = document.getElementById("texthour-10").value;
+    localStorage.setItem('hour-10', dayList[1].userText);
+    console.log(dayList[1].userText);
+    console.log(textArea.innerText);
 
+  
+    
+  
+  })
+  var clickEvent = document.getElementById('buttonhour-11').addEventListener('click', function(event){
+       
+    event.preventDefault();
+    
+  
+    dayList[2].userText = document.getElementById("texthour-11").value;
+    localStorage.setItem('hour-11', dayList[2].userText);
+    console.log(dayList[2].userText);
+    console.log(textArea.innerText);
 
-  //
-  // TODO: Add code to display the current date in the header of the page.
+  
+    
+  
+  })
+  var clickEvent = document.getElementById('buttonhour-12').addEventListener('click', function(event){
+       
+    event.preventDefault();
+    
+  
+    dayList[3].userText = document.getElementById("texthour-12").value;
+    localStorage.setItem('hour-12', dayList[3].userText);
+    console.log(dayList[3].userText);
+    console.log(textArea.innerText);
+
+  
+    
+  
+  })
+  var clickEvent = document.getElementById('buttonhour-13').addEventListener('click', function(event){
+       
+    event.preventDefault();
+  
+  
+    dayList[4].userText = document.getElementById("texthour-13").value;
+    localStorage.setItem('hour-13', dayList[4].userText);
+    console.log(dayList[4].userText);
+    console.log(textArea.innerText);
+
+  
+    
+  
+  })
+  var clickEvent = document.getElementById('buttonhour-14').addEventListener('click', function(event){
+       
+    event.preventDefault();
+    
+  
+    dayList[5].userText = document.getElementById("texthour-14").value;
+    localStorage.setItem('hour-14', dayList[5].userText);
+    console.log(dayList[5].userText);
+    console.log(textArea.innerText);
+
+  
+    
+  
+  })
+  var clickEvent = document.getElementById('buttonhour-15').addEventListener('click', function(event){
+       
+    event.preventDefault();
+    
+  
+    dayList[6].userText = document.getElementById("texthour-15").value;
+    localStorage.setItem('hour-15', dayList[6].userText);
+    console.log(dayList[6].userText);
+    console.log(textArea.innerText);
+
+  
+    
+  
+  })
+  var clickEvent = document.getElementById('buttonhour-16').addEventListener('click', function(event){
+       
+    event.preventDefault();
+    
+  
+    dayList[7].userText = document.getElementById("texthour-16").value;
+    localStorage.setItem('hour-16', dayList[7].userText);
+    console.log(dayList[7].userText);
+    console.log(textArea.innerText);
+
+  
+    
+  
+  })
+  var clickEvent = document.getElementById('buttonhour-17').addEventListener('click', function(event){
+       
+    event.preventDefault();
+    
+  
+    dayList[8].userText = document.getElementById("texthour-17").value;
+    localStorage.setItem('hour-17', dayList[8].userText);
+    console.log(dayList[8].userText);
+    console.log(textArea.innerText);
+
+  
+    
+  
+  })
 });
 
